@@ -5,7 +5,7 @@ import { axiosInstance, setAuthToken } from "../../../axiosConfig";
 import { useRouter } from "next/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import Notification from "../notfication";
+// import { notify } from "../notfication";
 
 interface IQuote {
   createdAt: string;
@@ -26,7 +26,7 @@ const QuoteList = () => {
   const loadToken = () => {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("Please log in to create a quote.");
+      // notify("Please log in to create a quote.", "error");
     } else {
       setAuthToken(token);
     }
@@ -46,7 +46,7 @@ const QuoteList = () => {
         setHasMore(true);
       }
     } catch (error) {
-      <Notification message='Failed to fetch quotes' status='error' />;
+      // notify("Failed to fetch quotes", "error");
       throw error;
     }
   };

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { axiosInstance, setAuthToken } from "../../../../axiosConfig";
+// import { notify } from "@/components/notfication";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -45,18 +46,13 @@ const LoginForm = () => {
     }
   };
 
-  // const handleLogin = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (username.trim() === "" || otp.length !== 4) {
-  //     alert("Please enter a valid username and 4-digit OTP.");
-  //     return;
-  //   }
-  //   alert(`Login successful!\nUsername: ${username}\nOTP: ${otp}`);
-  // };
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (username.trim() === "" || otp.some((digit) => digit === "")) {
-      alert("Please enter a valid username and complete the 4-digit OTP.");
+      // notify(
+      //   "Please enter a valid username and complete the 4-digit OTP.",
+      //   "error"
+      // );
       return;
     }
     try {
@@ -71,7 +67,7 @@ const LoginForm = () => {
       localStorage.setItem("username", username);
       router.push("/");
     } catch (error) {
-      alert("Login failed");
+      // notify("Login failed", "error");
       throw error;
     }
   };

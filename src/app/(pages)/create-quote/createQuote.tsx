@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { axiosInstance, setAuthToken } from "../../../../axiosConfig";
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa"; // Importing trash icon from react-icons
+// import { notify } from "@/components/notfication";
 
 const QuoteCreationForm: React.FC = () => {
   const [text, setText] = useState<string>("");
@@ -12,7 +13,7 @@ const QuoteCreationForm: React.FC = () => {
   const loadToken = () => {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("Please log in to create a quote.");
+      // notify("Please log in to create a quote.", "error");
     } else {
       setAuthToken(token);
     }
@@ -28,7 +29,7 @@ const QuoteCreationForm: React.FC = () => {
 
   const handleDelete = () => {
     setFile(null);
-    setImagePreview(null); // Clear file and image preview on delete
+    setImagePreview(null);
   };
 
   const handleSubmit = async () => {
@@ -36,7 +37,7 @@ const QuoteCreationForm: React.FC = () => {
       loadToken();
       const token = localStorage.getItem("token");
       if (!token) {
-        alert("Please log in to create a quote.");
+        // notify("Please log in to create a quote.", "error");
         return;
       }
 
@@ -48,19 +49,17 @@ const QuoteCreationForm: React.FC = () => {
         formData
       );
       const mediaUrl = uploadResponse?.data[0].url || "";
-
-      // Create quote with text and mediaUrl
       await axiosInstance.post("/postQuote", {
         text,
         mediaUrl,
       });
 
-      alert("Quote created successfully!");
+      // notify("Quote created successfully!", "success");
       setText("");
       setFile(null);
       setImagePreview(null);
     } catch (error) {
-      alert("Failed to create quote.");
+      // notify("Failed to create quote.", "error");
       throw error;
     }
   };
