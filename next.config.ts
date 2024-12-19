@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     domains: ["media.crafto.app"],
     unoptimized: true,
   },
-  output: "export",
+  // output: "export",
   typescript: {
     ignoreBuildErrors: true,
   },

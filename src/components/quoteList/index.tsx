@@ -5,6 +5,7 @@ import { axiosInstance, setAuthToken } from "../../../axiosConfig";
 import { useRouter } from "next/navigation";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
+import { getLocalStorage } from "@/utils/helper";
 // import { notify } from "../notfication";
 
 interface IQuote {
@@ -21,10 +22,12 @@ const QuoteList = () => {
   const [quotes, setQuotes] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const user = localStorage.getItem("username");
+  const user = getLocalStorage("username");
+  // const user = localStorage.getItem("username");
 
   const loadToken = () => {
-    const token = localStorage.getItem("token");
+    const token = getLocalStorage("token");
+    // const token = localStorage.getItem("token");
     if (!token) {
       // notify("Please log in to create a quote.", "error");
     } else {
