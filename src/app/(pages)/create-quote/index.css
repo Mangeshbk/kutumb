@@ -1,0 +1,130 @@
+.quote-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.quote-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  resize: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+.quote-input:focus {
+  outline: none;
+  border-color: #6b6b6b;
+}
+
+.file-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.file-input:hover {
+  background-color: #444;
+}
+
+.image-preview-container {
+  position: relative;
+  max-width: 300px;
+  margin: 10px 0;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.delete-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.delete-icon:hover {
+  color: #ff4d4d;
+}
+
+.submit-button {
+  padding: 4px 8px;
+  background-color: #6200ea;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #3700b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .quote-form-container {
+    padding: 15px;
+  }
+
+  .quote-input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .file-input {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-form-container {
+    padding: 10px;
+  }
+
+  .quote-input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .file-input {
+    font-size: 12px;
+  }
+
+  .submit-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

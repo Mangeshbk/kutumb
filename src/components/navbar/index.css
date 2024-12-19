@@ -1,0 +1,123 @@
+.navbar_wrapper {
+  background-color: #18181b;
+  position: sticky;
+}
+.navbar_container {
+  height: 72px;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 1.5rem;
+  margin: auto;
+}
+h1 {
+  font-size: 36px;
+  color: 6200ea;
+}
+
+.navbar_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_container > div {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.user_section {
+  gap: 0.5rem !important;
+}
+
+button {
+  height: 32px;
+  padding: 4px 8px;
+  background-color: #6200ea;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #6200ea;
+}
+
+.page-link {
+  margin-top: 8px;
+}
+
+.not-login {
+  text-align: center;
+  margin-top: 15%;
+}
+
+.user-popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.popover {
+  position: absolute;
+  top: 110%; /* Adjust based on icon size */
+  right: 0;
+  background: #18181b;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 12px;
+  z-index: 1000;
+}
+
+.popover::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: #18181b;
+  transform: rotate(45deg);
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.logout-button {
+  background: #6200ea;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background: #6200ea;
+  opacity: 0.9;
+}
+
+.user-display {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.user-display:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+  a {
+    font-size: 14px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
