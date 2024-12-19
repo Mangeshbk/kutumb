@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { axiosInstance, setAuthToken } from "../../../../axiosConfig";
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa"; // Importing trash icon from react-icons
+import { getLocalStorage } from "@/utils/helper";
 // import { notify } from "@/components/notfication";
 
 const QuoteCreationForm: React.FC = () => {
@@ -11,7 +12,8 @@ const QuoteCreationForm: React.FC = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const loadToken = () => {
-    const token = localStorage.getItem("token");
+    const token = getLocalStorage("token");
+    // const token = localStorage.getItem("token");
     if (!token) {
       // notify("Please log in to create a quote.", "error");
     } else {
@@ -35,7 +37,8 @@ const QuoteCreationForm: React.FC = () => {
   const handleSubmit = async () => {
     try {
       loadToken();
-      const token = localStorage.getItem("token");
+      const token = getLocalStorage("token");
+      // const token = localStorage.getItem("token");
       if (!token) {
         // notify("Please log in to create a quote.", "error");
         return;

@@ -4,10 +4,12 @@ import "./index.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PiUserCircleDuotone } from "react-icons/pi";
+import { getLocalStorage, removeLocalStorage } from "@/utils/helper";
 
 export default function Navbar() {
   const router = useRouter();
-  const username = localStorage.getItem("username");
+  const username = getLocalStorage("username");
+  // const username = localStorage.getItem("username");
   const [showPopover, setShowPopover] = useState(false);
 
   const togglePopover = () => {
@@ -19,8 +21,10 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("username");
-    localStorage.removeItem("token");
+    removeLocalStorage("username");
+    removeLocalStorage("token");
+    // localStorage.removeItem("username");
+    // localStorage.removeItem("token");
     router.push("/login");
   };
   return (

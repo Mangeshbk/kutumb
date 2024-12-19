@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { axiosInstance, setAuthToken } from "../../../../axiosConfig";
+import { setLocalStorage } from "@/utils/helper";
 // import { notify } from "@/components/notfication";
 
 const LoginForm = () => {
@@ -63,8 +64,10 @@ const LoginForm = () => {
       console.log("DATA", response);
       const token = response.data.token;
       setAuthToken(token);
-      localStorage.setItem("token", token);
-      localStorage.setItem("username", username);
+      setLocalStorage("token", token);
+      setLocalStorage("username", username);
+      // localStorage.setItem("token", token);
+      // localStorage.setItem("username", username);
       router.push("/");
     } catch (error) {
       // notify("Login failed", "error");
@@ -87,19 +90,6 @@ const LoginForm = () => {
         />
 
         <label htmlFor='otp'>4-Digit OTP</label>
-        {/* <input
-          type='text'
-          id='otp'
-          value={otp}
-          onChange={(e) => {
-            const value = e.target.value;
-            if (/^\d{0,4}$/.test(value)) {
-              setOtp(value);
-            }
-          }}
-          placeholder='Enter your OTP'
-          maxLength={4}
-        /> */}
         <div className='otp-container'>
           {otp.map((digit, index) => (
             <input
